@@ -5,11 +5,11 @@ It can scrap **multiple tweets** and generate for each a beautiful **screenshot*
 
 Examples:
 
-![example.jpg](tweets/2021-01-13_DalaiLama_Watch Live- HHDL joins Harvard Business School professor and columnist Arthur Brooks for an online c.png?raw=true)
+[![example.jpg](example.jpg)](tweets/2021-01-13_DalaiLama_Watch%20Live-%20HHDL%20joins%20Harvard%20Business%20School%20professor%20and%20columnist%20Arthur%20Brooks%20for%20an%20online%20c.png)
 
 and
 
-![example.pdf](tweets/2021-01-13_DalaiLama_Watch Live- HHDL joins Harvard Business School professor and columnist Arthur Brooks for an online c.pdf)
+![example.pdf](tweets/2021-01-13_DalaiLama_Watch%20Live-%20HHDL%20joins%20Harvard%20Business%20School%20professor%20and%20columnist%20Arthur%20Brooks%20for%20an%20online%20c.pdf)
 
 # Installation
 
