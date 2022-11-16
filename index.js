@@ -3,6 +3,12 @@ import playwright from 'playwright';
 
 import twitterUrls from './twitter-links.js';
 
+const exportDir = "tweets";
+const exportScreenshot = true;
+const exportPdf = true;
+const timeout = 30; // in seconds
+const pageCount = 40; // number of page (page height 1024px)
+
 /// Async sleep method
 const sleep = (waitTimeInMs) => new Promise(resolve => setTimeout(resolve, waitTimeInMs));
 
@@ -47,20 +53,24 @@ async function getTweet(page, url)
 			};			
 		});
 		
-		/// Scroll the page of 1024px 40 times 
+		/// Scroll the page of 1024px pageCount times 
 		process.stdout.write("Scrolling the page: ");
-		for (var i = 0 ; i < 40; i++) {
+		for (var i = 0 ; i < pageCount; i++) {
 			process.stdout.write(".");
 			await page.mouse.wheel(0, 1024);
 			await sleep(250);
 		}
 		process.stdout.write("\n");
-		
-		console.log("Writing screenshot");
-		await page.screenshot({ path: "tweets/" + filename + '.png', fullPage: true });
 
-		console.log("Writing pdf");
-		await page.pdf({ path: "tweets/" + filename + '.pdf', printBackground: true });
+		if (exportScreenshot) {
+			console.log("Writing screenshot");
+			await page.screenshot({ path: `${exportDir}/` + filename + '.png', fullPage: true });
+		}
+
+		if (exportPdf) {
+			console.log("Writing pdf");
+			await page.pdf({ path: `${exportDir}/` + filename + '.pdf', printBackground: true });
+		}
 	}
 	catch(e) { 
 		console.log('exception', e);
@@ -72,8 +82,8 @@ async function getTweet(page, url)
 const browser = await playwright.chromium.launch();
 const page = await browser.newPage();
 
-/// Timeout of 15s
-// page.setDefaultTimeout(15000);
+/// Timeout of 30s by default
+page.setDefaultTimeout(timeout * 1000);
 
 let index = 0;
 for(; index < twitterUrls.length; index++) {
