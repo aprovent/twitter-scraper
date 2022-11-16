@@ -1,0 +1,15 @@
+{
+  "name": "Twitter Scraper",
+  "description": "A simple twitter scraper tool to export tweet to pdf and screenshot",
+  "version": "1.0.0",  
+  "license" : "MIT",
+  "author": "Alexandre Provent <aprovent@gmail.com>",
+  "type": "module",
+  "scripts": {
+    "scrap": "node index.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "playwright": "^1.27.1"
+  }
+}
