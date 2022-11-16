@@ -13,6 +13,8 @@ and
 
 # Installation
 
+Before all, you need NodeJs on your computer. Download it on [https://nodejs.org/](https://nodejs.org/)
+
 Clone the project then execute :
 
 ````
